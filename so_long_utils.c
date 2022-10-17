@@ -6,13 +6,13 @@
 /*   By: hwichoi <hwichoi@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 21:27:37 by hwichoi           #+#    #+#             */
-/*   Updated: 2022/10/04 22:35:05 by hwichoi          ###   ########.fr       */
+/*   Updated: 2022/10/17 16:09:09 by hwichoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*ft_strjoin_with_free(char *s1, char *s2)
+char	*ft_strjoin_sl(char *s1, char *s2)
 {
 	char	*buf;
 	int		size;

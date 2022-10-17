@@ -6,7 +6,7 @@
 /*   By: hwichoi <hwichoi@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 18:50:48 by hwichoi           #+#    #+#             */
-/*   Updated: 2022/10/04 22:40:19 by hwichoi          ###   ########.fr       */
+/*   Updated: 2022/10/17 15:59:05 by hwichoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	esc_press(t_game *game)
 {
 	mlx_destroy_window(game->mlx, game->win);
+	free(game->map_str);
 	exit(0);
 }
 

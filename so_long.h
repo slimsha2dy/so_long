@@ -6,7 +6,7 @@
 /*   By: hwichoi <hwichoi@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:16:46 by hwichoi           #+#    #+#             */
-/*   Updated: 2022/10/04 22:40:34 by hwichoi          ###   ########.fr       */
+/*   Updated: 2022/10/17 16:09:24 by hwichoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_img
 	void	*p_img;
 }	t_img;
 
-char	*get_line(char *filename, t_game *game);
+void	get_line(char *filename, t_game *game);
 void	map_set(char *map_str, t_game *game, t_img *img);
 void	map_init(char *filename, t_game *game, t_img *img);
 
@@ -62,7 +62,7 @@ void	map_chk(t_game *game);
 
 void	image_set(t_img *img, t_game *game);
 
-char	*ft_strjoin_with_free(char *s1, char *s2);
+char	*ft_strjoin_sl(char *s1, char *s2);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
 void	print_err(const char *s);

@@ -6,17 +6,17 @@
 /*   By: hwichoi <hwichoi@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 21:07:42 by hwichoi           #+#    #+#             */
-/*   Updated: 2022/10/04 21:10:45 by hwichoi          ###   ########.fr       */
+/*   Updated: 2022/10/17 16:10:08 by hwichoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*get_line(char *filename, t_game *game)
+void	get_line(char *filename, t_game *game)
 {
 	int		fd;
 	char	*line;
-	char	*ret_str;
+	char	*buf;
 
 	fd = open(filename, O_RDONLY);
 	game->hei = 0;
@@ -26,11 +26,16 @@ char	*get_line(char *filename, t_game *game)
 	while (line)
 	{
 		game->hei++;
-		game->map_str = ft_strjoin_with_free(game->map_str, line);
+		buf = game->map_str;
+		game->map_str = ft_strjoin_sl(buf, line);
+		free(line);
+		free(buf);
 		line = get_next_line(fd);
 	}
+	if (game->map_str[ft_strlen(game->map_str) - 1] == '\n')
+		game->map_str[ft_strlen(game->map_str) - 1] = '\0';
 	close(fd);
-	return (ret_str);
+	return ;
 }
 
 void	map_set(char *map_str, t_game *game, t_img *img)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hwichoi <hwichoi@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:12:01 by hwichoi           #+#    #+#             */
-/*   Updated: 2022/10/04 22:39:06 by hwichoi          ###   ########.fr       */
+/*   Updated: 2022/10/17 16:28:04 by hwichoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,27 @@ int	key_press(int key_code, t_game *game)
 	return (0);
 }
 
+int	filename_chk(char *c)
+{
+	int	last;
+
+	last = ft_strlen(c) - 1;
+	if (c[last] != 'r' && c[last - 1] != 'e' && c[last - 2] != 'b' \
+			&& c[last - 3] != ',')
+		return (0);
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	t_game	game;
 	t_img	img;
 
+	if (ac != 2 || filename_chk(av[1]) == 0)
+	{
+		printf("It must be only one file of '.ber'\n");
+		return (0);
+	}
 	game.mlx = mlx_init();
 	set_cnt(&game);
 	image_set(&img, &game);
